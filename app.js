@@ -142,5 +142,5 @@ const host = process.env.HOST || ''
 app.server = app.listen(port, host, () => {
   console.log(`server running @ http://${host ? host : 'localhost'}:${port}`)
 })
-
+//open('http://127.0.0.1:3000')
 module.exports = app

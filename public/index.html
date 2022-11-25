@@ -1,15 +1,143 @@
 <!DOCTYPE html>
-<html lang="zh">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>网易云音乐 API</title>
-</head>
-
-<body>
-  测试
-</body>
-
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>music</title>
+    <link href="/css/chunk-033a232c.d0862a1a.css" rel="prefetch" />
+    <link href="/css/chunk-0bce3b4a.ffdc3337.css" rel="prefetch" />
+    <link href="/css/chunk-0d4e5d18.9414b12d.css" rel="prefetch" />
+    <link href="/css/chunk-15c541da.eab156f0.css" rel="prefetch" />
+    <link href="/css/chunk-1691b398.7c470e25.css" rel="prefetch" />
+    <link href="/css/chunk-16b88548.5c264951.css" rel="prefetch" />
+    <link href="/css/chunk-1742d514.61cc827d.css" rel="prefetch" />
+    <link href="/css/chunk-174d443c.c9aa0b70.css" rel="prefetch" />
+    <link href="/css/chunk-190f3e8e.359bcb12.css" rel="prefetch" />
+    <link href="/css/chunk-1ee03582.0a7e77bc.css" rel="prefetch" />
+    <link href="/css/chunk-1f1a3c36.f3ee2832.css" rel="prefetch" />
+    <link href="/css/chunk-1f59a5c2.2682d717.css" rel="prefetch" />
+    <link href="/css/chunk-218a3e88.b7151921.css" rel="prefetch" />
+    <link href="/css/chunk-2d8a1f56.25e710c8.css" rel="prefetch" />
+    <link href="/css/chunk-2e0430e8.243dee0c.css" rel="prefetch" />
+    <link href="/css/chunk-317e78ad.0145060f.css" rel="prefetch" />
+    <link href="/css/chunk-32aa8585.582645ab.css" rel="prefetch" />
+    <link href="/css/chunk-32f2fd27.9a0e9ce8.css" rel="prefetch" />
+    <link href="/css/chunk-331af9b6.24569559.css" rel="prefetch" />
+    <link href="/css/chunk-35034d03.57c83df9.css" rel="prefetch" />
+    <link href="/css/chunk-380d69ec.5b1136db.css" rel="prefetch" />
+    <link href="/css/chunk-3f4a125d.eee1e505.css" rel="prefetch" />
+    <link href="/css/chunk-442a3174.5e702fd9.css" rel="prefetch" />
+    <link href="/css/chunk-4b491263.64e5ae8d.css" rel="prefetch" />
+    <link href="/css/chunk-4cce3647.5ad79b63.css" rel="prefetch" />
+    <link href="/css/chunk-4e920da0.187fc615.css" rel="prefetch" />
+    <link href="/css/chunk-4fd41597.484b58bf.css" rel="prefetch" />
+    <link href="/css/chunk-53c2683c.5b72c5cc.css" rel="prefetch" />
+    <link href="/css/chunk-58c21cb7.4ef34f9a.css" rel="prefetch" />
+    <link href="/css/chunk-5ba5c33f.2c565e55.css" rel="prefetch" />
+    <link href="/css/chunk-5c5ab90a.1d995183.css" rel="prefetch" />
+    <link href="/css/chunk-5d739718.73eb102a.css" rel="prefetch" />
+    <link href="/css/chunk-5f1c428e.13d95d56.css" rel="prefetch" />
+    <link href="/css/chunk-6203794c.6ca20fa9.css" rel="prefetch" />
+    <link href="/css/chunk-64d37966.49534750.css" rel="prefetch" />
+    <link href="/css/chunk-6884d665.42217d38.css" rel="prefetch" />
+    <link href="/css/chunk-6dc2c27f.3fc1e27b.css" rel="prefetch" />
+    <link href="/css/chunk-70a4d296.3560198a.css" rel="prefetch" />
+    <link href="/css/chunk-72b10b03.9d27a069.css" rel="prefetch" />
+    <link href="/css/chunk-7302d4a2.dd74efd5.css" rel="prefetch" />
+    <link href="/css/chunk-7a35d888.b3021a8e.css" rel="prefetch" />
+    <link href="/css/chunk-7f1aafb4.c1f7f3bf.css" rel="prefetch" />
+    <link href="/css/chunk-7ff630fe.e2cc304f.css" rel="prefetch" />
+    <link href="/css/chunk-8b3fd8b4.41089461.css" rel="prefetch" />
+    <link href="/css/chunk-95380f64.a603461d.css" rel="prefetch" />
+    <link href="/css/chunk-98900c98.016b15b6.css" rel="prefetch" />
+    <link href="/css/chunk-a7743d8c.79a641ed.css" rel="prefetch" />
+    <link href="/css/chunk-a89ddf2e.232d9f1a.css" rel="prefetch" />
+    <link href="/css/chunk-af4ac312.76ff05e6.css" rel="prefetch" />
+    <link href="/css/chunk-c3a373f0.4f1917eb.css" rel="prefetch" />
+    <link href="/css/chunk-c6b2ab5e.2c63709a.css" rel="prefetch" />
+    <link href="/css/chunk-e43f91d4.f85182ac.css" rel="prefetch" />
+    <link href="/css/chunk-e6aa4574.9cff3c01.css" rel="prefetch" />
+    <link href="/js/chunk-033a232c.eea7e4e2.js" rel="prefetch" />
+    <link href="/js/chunk-0bce3b4a.91ee605d.js" rel="prefetch" />
+    <link href="/js/chunk-0d4e5d18.26b4deb5.js" rel="prefetch" />
+    <link href="/js/chunk-15c541da.2f71e5e9.js" rel="prefetch" />
+    <link href="/js/chunk-1691b398.c968366c.js" rel="prefetch" />
+    <link href="/js/chunk-16b88548.b39569c2.js" rel="prefetch" />
+    <link href="/js/chunk-1742d514.b74b3e9c.js" rel="prefetch" />
+    <link href="/js/chunk-174d443c.b05edc0e.js" rel="prefetch" />
+    <link href="/js/chunk-190f3e8e.99cf16fc.js" rel="prefetch" />
+    <link href="/js/chunk-1ee03582.ef8cad18.js" rel="prefetch" />
+    <link href="/js/chunk-1f1a3c36.d11be944.js" rel="prefetch" />
+    <link href="/js/chunk-1f59a5c2.09fd5278.js" rel="prefetch" />
+    <link href="/js/chunk-218a3e88.6c7164f2.js" rel="prefetch" />
+    <link href="/js/chunk-2d0ab82e.0f02e4d7.js" rel="prefetch" />
+    <link href="/js/chunk-2d0b9820.c71a7220.js" rel="prefetch" />
+    <link href="/js/chunk-2d0bcdc8.d4f21fbd.js" rel="prefetch" />
+    <link href="/js/chunk-2d0bd413.5409ba5f.js" rel="prefetch" />
+    <link href="/js/chunk-2d0ced92.993b4b0b.js" rel="prefetch" />
+    <link href="/js/chunk-2d0cf38a.6d5185f4.js" rel="prefetch" />
+    <link href="/js/chunk-2d0d0b9a.6707f1a8.js" rel="prefetch" />
+    <link href="/js/chunk-2d0d2af8.83eefa2d.js" rel="prefetch" />
+    <link href="/js/chunk-2d0da06d.3e3bc68c.js" rel="prefetch" />
+    <link href="/js/chunk-2d20ed78.1b8f6916.js" rel="prefetch" />
+    <link href="/js/chunk-2d21060b.70c8dc37.js" rel="prefetch" />
+    <link href="/js/chunk-2d22bdac.1f85e7b1.js" rel="prefetch" />
+    <link href="/js/chunk-2d8a1f56.da49c237.js" rel="prefetch" />
+    <link href="/js/chunk-2e0430e8.f7e6b43e.js" rel="prefetch" />
+    <link href="/js/chunk-317e78ad.8bf015a9.js" rel="prefetch" />
+    <link href="/js/chunk-32aa8585.a6471db2.js" rel="prefetch" />
+    <link href="/js/chunk-32f2fd27.05995905.js" rel="prefetch" />
+    <link href="/js/chunk-331af9b6.90c97949.js" rel="prefetch" />
+    <link href="/js/chunk-35034d03.f71a211a.js" rel="prefetch" />
+    <link href="/js/chunk-380d69ec.95149016.js" rel="prefetch" />
+    <link href="/js/chunk-3f4a125d.7053738f.js" rel="prefetch" />
+    <link href="/js/chunk-442a3174.d3f53265.js" rel="prefetch" />
+    <link href="/js/chunk-4b491263.25be2082.js" rel="prefetch" />
+    <link href="/js/chunk-4cce3647.eb3df246.js" rel="prefetch" />
+    <link href="/js/chunk-4e920da0.4cf00eed.js" rel="prefetch" />
+    <link href="/js/chunk-4fd41597.bf21e635.js" rel="prefetch" />
+    <link href="/js/chunk-53c2683c.9ae8ce2b.js" rel="prefetch" />
+    <link href="/js/chunk-58c21cb7.764169d6.js" rel="prefetch" />
+    <link href="/js/chunk-5ba5c33f.9876513e.js" rel="prefetch" />
+    <link href="/js/chunk-5c5ab90a.cb16c01d.js" rel="prefetch" />
+    <link href="/js/chunk-5d739718.bfd69335.js" rel="prefetch" />
+    <link href="/js/chunk-5f1c428e.1159739f.js" rel="prefetch" />
+    <link href="/js/chunk-6203794c.c43ace85.js" rel="prefetch" />
+    <link href="/js/chunk-64d37966.2882ce88.js" rel="prefetch" />
+    <link href="/js/chunk-6884d665.8421ba9f.js" rel="prefetch" />
+    <link href="/js/chunk-6dc2c27f.e96e1388.js" rel="prefetch" />
+    <link href="/js/chunk-70a4d296.07ac62fa.js" rel="prefetch" />
+    <link href="/js/chunk-72b10b03.27f3b0fd.js" rel="prefetch" />
+    <link href="/js/chunk-7302d4a2.830d07b1.js" rel="prefetch" />
+    <link href="/js/chunk-7a35d888.de1b9510.js" rel="prefetch" />
+    <link href="/js/chunk-7f1aafb4.d0e74aed.js" rel="prefetch" />
+    <link href="/js/chunk-7ff630fe.72158ada.js" rel="prefetch" />
+    <link href="/js/chunk-8b3fd8b4.fd11ff2e.js" rel="prefetch" />
+    <link href="/js/chunk-95380f64.3c9363a3.js" rel="prefetch" />
+    <link href="/js/chunk-98900c98.a7729547.js" rel="prefetch" />
+    <link href="/js/chunk-a7743d8c.fe050757.js" rel="prefetch" />
+    <link href="/js/chunk-a89ddf2e.a0847c69.js" rel="prefetch" />
+    <link href="/js/chunk-af4ac312.d44c1393.js" rel="prefetch" />
+    <link href="/js/chunk-c3a373f0.8036f8ad.js" rel="prefetch" />
+    <link href="/js/chunk-c6b2ab5e.3eb0d446.js" rel="prefetch" />
+    <link href="/js/chunk-e43f91d4.794e8a8a.js" rel="prefetch" />
+    <link href="/js/chunk-e6aa4574.12cc499c.js" rel="prefetch" />
+    <link href="/css/app.9a9b903e.css" rel="preload" as="style" />
+    <link href="/js/app.7ab97245.js" rel="preload" as="script" />
+    <link href="/js/chunk-vendors.1f4e1b0a.js" rel="preload" as="script" />
+    <link href="/css/app.9a9b903e.css" rel="stylesheet" />
+  </head>
+  <body>
+    <noscript
+      ><strong
+        >We're sorry but music doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong
+      ></noscript
+    >
+    <div id="app"></div>
+    <script src="/js/chunk-vendors.1f4e1b0a.js"></script>
+    <script src="/js/app.7ab97245.js"></script>
+  </body>
 </html>
