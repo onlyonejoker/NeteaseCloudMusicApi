@@ -1,11 +1,12 @@
 const encrypt = require('./crypto')
+const crypto = require('crypto')
 const axios = require('axios')
-const queryString = require('querystring')
 const PacProxyAgent = require('pac-proxy-agent')
 const http = require('http')
 const https = require('https')
 const tunnel = require('tunnel')
-const qs = require('url')
+const { URLSearchParams, URL } = require('url')
+const config = require('../util/config.json')
 // request.debug = true // 开启可看到更详细信息
 
 const chooseUserAgent = (ua = false) => {
@@ -42,16 +43,33 @@ const chooseUserAgent = (ua = false) => {
     ? realUserAgentList[Math.floor(Math.random() * realUserAgentList.length)]
     : ua
 }
-const createRequest = (method, url, data, options) => {
+const createRequest = (method, url, data = {}, options) => {
   return new Promise((resolve, reject) => {
     let headers = { 'User-Agent': chooseUserAgent(options.ua) }
     if (method.toUpperCase() === 'POST')
       headers['Content-Type'] = 'application/x-www-form-urlencoded'
     if (url.includes('music.163.com'))
       headers['Referer'] = 'https://music.163.com'
-    if (options.realIP) headers['X-Real-IP'] = options.realIP
+    let ip = options.realIP || options.ip || ''
+    // console.log(ip)
+    if (ip) {
+      headers['X-Real-IP'] = ip
+      headers['X-Forwarded-For'] = ip
+    }
     // headers['X-Real-IP'] = '118.88.88.88'
-    if (typeof options.cookie === 'object')
+    if (typeof options.cookie === 'object') {
+      options.cookie = {
+        ...options.cookie,
+        __remember_me: true,
+        NMTID: crypto.randomBytes(16).toString('hex'),
+        _ntes_nuid: crypto.randomBytes(16).toString('hex'),
+      }
+      if (!options.cookie.MUSIC_U) {
+        // 游客
+        if (!options.cookie.MUSIC_A) {
+          options.cookie.MUSIC_A = config.anonymous_token
+        }
+      }
       headers['Cookie'] = Object.keys(options.cookie)
         .map(
           (key) =>
@@ -60,11 +78,12 @@ const createRequest = (method, url, data, options) => {
             encodeURIComponent(options.cookie[key]),
         )
         .join('; ')
-    else if (options.cookie) headers['Cookie'] = options.cookie
-
-    if (!headers['Cookie']) {
-      headers['Cookie'] = options.token || ''
+    } else if (options.cookie) {
+      headers['Cookie'] = options.cookie
+    } else {
+      headers['Cookie'] = '__remember_me=true; NMTID=xxx'
     }
+    // console.log(options.cookie, headers['Cookie'])
     if (options.crypto === 'weapi') {
       let csrfToken = (headers['Cookie'] || '').match(/_csrf=([^(;|$)]+)/)
       data.csrf_token = csrfToken ? csrfToken[1] : ''
@@ -85,7 +104,7 @@ const createRequest = (method, url, data, options) => {
       const header = {
         osver: cookie.osver, //系统版本
         deviceId: cookie.deviceId, //encrypt.base64.encode(imei + '\t02:00:00:00:00:00\t5106025eb79a5247\t70ffbaac7')
-        appver: cookie.appver || '8.0.0', // app版本
+        appver: cookie.appver || '8.7.01', // app版本
         versioncode: cookie.versioncode || '140', //版本号
         mobilename: cookie.mobilename, //设备model
         buildver: cookie.buildver || Date.now().toString().substr(0, 10),
@@ -109,13 +128,12 @@ const createRequest = (method, url, data, options) => {
       data = encrypt.eapi(options.url, data)
       url = url.replace(/\w*api/, 'eapi')
     }
-
     const answer = { status: 500, body: {}, cookie: [] }
     let settings = {
       method: method,
       url: url,
       headers: headers,
-      data: queryString.stringify(data),
+      data: new URLSearchParams(data).toString(),
       httpAgent: new http.Agent({ keepAlive: true }),
       httpsAgent: new https.Agent({ keepAlive: true }),
     }
@@ -127,7 +145,7 @@ const createRequest = (method, url, data, options) => {
         settings.httpAgent = new PacProxyAgent(options.proxy)
         settings.httpsAgent = new PacProxyAgent(options.proxy)
       } else {
-        const purl = qs.parse(options.proxy)
+        const purl = new URL(options.proxy)
         if (purl.hostname) {
           const agent = tunnel.httpsOverHttp({
             proxy: {

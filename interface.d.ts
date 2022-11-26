@@ -1056,6 +1056,17 @@ export function song_url(
   params: { id: string | number; br?: string | number } & RequestBaseConfig,
 ): Promise<Response>
 
+export const enum SoundQualityType {
+  standard = 'standard',
+  exhigh = 'exhigh',
+  lossless = 'lossless',
+  hires = 'hires',
+}
+
+export function song_url_v1(
+  params: { id: string | number; level: SoundQualityType } & RequestBaseConfig,
+): Promise<Response>
+
 export function top_album(
   params: {
     area?: AlbumListArea
@@ -1593,5 +1604,96 @@ export function record_recent_album(
 export function record_recent_dj(
   params: {
     limit?: number | string
+  } & RequestBaseConfig,
+): Promise<Response>
+
+export function signin_progress(
+  params: {
+    moduleId?: string
+  } & RequestBaseConfig,
+): Promise<Response>
+
+export function nickname_check(
+  params: {
+    nickname: string
+  } & RequestBaseConfig,
+): Promise<Response>
+
+export function musician_tasks_new(params: RequestBaseConfig): Promise<Response>
+
+export function playlist_update_playcount(
+  params: {
+    id?: number | string
+  } & RequestBaseConfig,
+): Promise<Response>
+
+export function vip_timemachine(
+  params: {
+    startTime?: number | string
+    endTime?: number | string
+    limit?: number | string
+  } & RequestBaseConfig,
+): Promise<Response>
+
+export function song_wiki_summary(
+  params: {
+    id: number | string
+  } & RequestBaseConfig,
+): Promise<Response>
+
+export function sheet_list(
+  params: {
+    id: number | string
+    abTest?: 'a' | 'b'
+  } & RequestBaseConfig,
+): Promise<Response>
+
+export function sheet_preview(
+  params: {
+    id: number | string
+  } & RequestBaseConfig,
+): Promise<Response>
+
+export function style_list(params: RequestBaseConfig): Promise<Response>
+
+export function style_preference(params: RequestBaseConfig): Promise<Response>
+
+export function style_detail(
+  params: {
+    tagId: number | string
+  } & RequestBaseConfig,
+): Promise<Response>
+
+export function style_song(
+  params: {
+    tagId: number | string
+    size?: number | string
+    cursor?: number | string
+    sort?: number | string
+  } & RequestBaseConfig,
+): Promise<Response>
+
+export function style_album(
+  params: {
+    tagId: number | string
+    size?: number | string
+    cursor?: number | string
+    sort?: number | string
+  } & RequestBaseConfig,
+): Promise<Response>
+
+export function style_playlist(
+  params: {
+    tagId: number | string
+    size?: number | string
+    cursor?: number | string
+  } & RequestBaseConfig,
+): Promise<Response>
+
+export function style_artist(
+  params: {
+    tagId: number | string
+    size?: number | string
+    cursor?: number | string
   } & RequestBaseConfig,
 ): Promise<Response>

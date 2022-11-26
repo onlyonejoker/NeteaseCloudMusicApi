@@ -4,4 +4,4 @@ node_modules
 .idea
 .vscode
 .history
-public
+examples/moddef.json
